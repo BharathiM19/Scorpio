@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Patient Dashboard - Centralized Medical Record System</title>
+</head>
+<body style="margin:0; padding:0; font-family:Arial, sans-serif; background:#f4f4f4;">
+
+  <!-- Top Bar / Welcome Message -->
+  <div style="background-color:#ffffff; padding:1rem; box-shadow:0 0 10px rgba(0,0,0,0.1);">
+    <h1 id="welcomeMessage" style="margin:0; font-size:1.5rem;">Welcome </h1>
+  </div>
+
+  <!-- Main Container (Grid Layout) -->
+  <div style="
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 1rem auto;
+  ">
+
+    <!-- Profile Card -->
+    <div id="profileCard" style="
+      background-color:#fff;
+      padding:1rem;
+      border-radius:8px;
+      box-shadow:0 0 5px rgba(0,0,0,0.1);
+      grid-column:1 / 2;
+    ">
+      <h2 style="margin-bottom:0.5rem;">Profile</h2>
+      <img src="https://via.placeholder.com/80" alt="Profile"
+           style="width:80px; height:80px; border-radius:50%; margin-bottom:1rem;" />
+      <p id="profileName" style="margin:0.5rem 0;">Name: John Doe</p>
+      <p id="profileId" style="margin:0.5rem 0;">Patient ID: PAT1234</p>
+      <p id="profileDob" style="margin:0.5rem 0;">DOB: 1990-01-01</p>
+      <p id="profileGender" style="margin:0.5rem 0;">Gender: Male</p>
+    </div>
+
+    <!-- Medical History Card -->
+    <div id="medicalHistoryCard" style="
+      background-color:#fff;
+      padding:1rem;
+      border-radius:8px;
+      box-shadow:0 0 5px rgba(0,0,0,0.1);
+      grid-column:2 / 4;
+    ">
+      <h2 style="margin-bottom:0.5rem;">Medical History</h2>
+      <p>Prescriptions: 0.25%</p>
+      <p>Shots: 0.5%</p>
+      <p>Allergies: None</p>
+    </div>
+
+    <!-- Prescriptions Card -->
+    <div id="prescriptionsCard" style="
+      background-color:#fff;
+      padding:1rem;
+      border-radius:8px;
+      box-shadow:0 0 5px rgba(0,0,0,0.1);
+      grid-column:1 / 2;
+    ">
+      <h2 style="margin-bottom:0.5rem;">Prescriptions</h2>
+      <ul style="list-style-type:disc; padding-left:1.5rem;">
+        <li>Medicine A</li>
+        <li>Medicine B</li>
+      </ul>
+    </div>
+
+    <!-- Appointments Card -->
+    <div id="appointmentsCard" style="
+      background-color:#fff;
+      padding:1rem;
+      border-radius:8px;
+      box-shadow:0 0 5px rgba(0,0,0,0.1);
+      grid-column:2 / 3;
+    ">
+      <h2 style="margin-bottom:0.5rem;">Appointments</h2>
+      <p>No upcoming appointments</p>
+    </div>
+
+    <!-- Reports Card -->
+    <div id="reportsCard" style="
+      background-color:#fff;
+      padding:1rem;
+      border-radius:8px;
+      box-shadow:0 0 5px rgba(0,0,0,0.1);
+      grid-column:3 / 4;
+    ">
+      <h2 style="margin-bottom:0.5rem;">Reports</h2>
+      <p>Blood Test: Normal</p>
+      <p>Blood Pressure: Normal</p>
+    </div>
+
+    <!-- Search Card -->
+    <div id="searchCard" style="
+      background-color:#fff;
+      padding:1rem;
+      border-radius:8px;
+      box-shadow:0 0 5px rgba(0,0,0,0.1);
+      grid-column:1 / 2;
+    ">
+      <h2 style="margin-bottom:0.5rem;">Search</h2>
+      <form id="searchForm" style="display:flex; flex-direction:column;">
+        <input type="text" id="searchQuery"
+               placeholder="Search..."
+               required
+               style="width:100%; padding:0.5rem; margin-bottom:0.5rem; border:1px solid #ccc; border-radius:4px;" />
+        <button type="submit"
+                style="padding:0.5rem; background-color:#4CAF50; color:#fff; border:none; border-radius:4px; cursor:pointer;">
+          Search
+        </button>
+      </form>
+      <div id="searchResults" style="margin-top:1rem;"></div>
+    </div>
+
+    <!-- Upload Medical History Card -->
+    <div id="uploadCard" style="
+      background-color:#fff;
+      padding:1rem;
+      border-radius:8px;
+      box-shadow:0 0 5px rgba(0,0,0,0.1);
+      grid-column:2 / 4;
+    ">
+      <h2 style="margin-bottom:0.5rem;">Upload Medical History</h2>
+      <form id="uploadForm" style="display:flex; flex-direction:column;">
+        <input type="file" id="fileInput" name="file"
+               accept=".pdf,.doc,.docx,image/*"
+               required
+               style="margin-bottom:0.5rem; border:1px solid #ccc; border-radius:4px; padding:0.3rem;" />
+        <button type="submit"
+                style="padding:0.5rem; background-color:#4CAF50; color:#fff; border:none; border-radius:4px; cursor:pointer;">
+          Upload
+        </button>
+      </form>
+      <div id="uploadMessage" style="margin-top:1rem;"></div>
+    </div>
+
+    <!-- Operation / Treatment Info Card -->
+    <div id="operationCard" style="
+      background-color:#fff;
+      padding:1rem;
+      border-radius:8px;
+      box-shadow:0 0 5px rgba(0,0,0,0.1);
+      grid-column:1 / 4;
+    ">
+      <h2 style="margin-bottom:0.5rem;">Operation / Treatment Info</h2>
+      <form id="operationForm" style="display:flex; flex-direction:column;">
+        <!-- All fields are now enabled by default -->
+        <label for="doctorNameOp">Doctor Name:</label>
+        <input type="text" id="doctorNameOp" name="doctorNameOp"
+               style="margin-bottom:0.5rem;" />
+
+        <label for="hospitalNameOp">Hospital Name:</label>
+        <input type="text" id="hospitalNameOp" name="hospitalNameOp"
+               style="margin-bottom:0.5rem;" />
+
+        <label for="patientNameOp">Patient Name:</label>
+        <input type="text" id="patientNameOp" name="patientNameOp"
+               style="margin-bottom:0.5rem;" />
+
+        <label for="patientAgeOp">Age of Patient:</label>
+        <input type="number" id="patientAgeOp" name="patientAgeOp"
+               style="margin-bottom:0.5rem;" />
+
+        <label for="operationName">Operation Name(s):</label>
+        <input type="text" id="operationName" name="operationName"
+               style="margin-bottom:0.5rem;" />
+        <small style="color:#777; margin-bottom:0.5rem;">
+          (If more than one name, separate them with “+”)
+        </small>
+
+        <label for="operationFiles">Files Upload:</label>
+        <input type="file" id="operationFiles" name="operationFiles"
+               multiple style="margin-bottom:0.5rem;" />
+
+        <label for="dateOfOperation">Date of Operation:</label>
+        <input type="date" id="dateOfOperation" name="dateOfOperation"
+               style="margin-bottom:0.5rem;" />
+
+        <label for="opDescription">Description:</label>
+        <textarea id="opDescription" name="opDescription" rows="4"
+                  style="margin-bottom:0.5rem;"></textarea>
+
+        <label for="prescriptionUpload2">Prescription (if not uploaded):</label>
+        <input type="file" id="prescriptionUpload2" name="prescriptionUpload2"
+               style="margin-bottom:0.5rem;" />
+
+        <button type="submit"
+                style="padding:0.5rem; background-color:#4CAF50; color:#fff; border:none; border-radius:4px; cursor:pointer;">
+          Submit
+        </button>
+      </form>
+      <div id="operationMessage" style="margin-top:1rem;"></div>
+    </div>
+
+  </div>
+
+  <script src="js/scripts.js"></script>
+</body>
+</html>

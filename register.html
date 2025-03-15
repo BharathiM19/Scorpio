@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Register - Centralized Medical Record System</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div id="register-container">
+    <h1>Registration</h1>
+    <div class="tab">
+      <button class="tablinks active" onclick="openTab(event, 'userRegister')">User Registration</button>
+      <button class="tablinks" onclick="openTab(event, 'doctorRegister')">Doctor Registration</button>
+    </div>
+
+    <!-- User Registration Form -->
+    <div id="userRegister" class="tabcontent" style="display: block;">
+      <form id="user-register-form">
+        <h2>User Registration</h2>
+        <label for="userName">Full Name:</label>
+        <input type="text" id="userName" name="userName" required />
+
+        <label for="userAadhaarReg">Aadhaar Card:</label>
+        <input type="text" id="userAadhaarReg" name="userAadhaarReg" required />
+
+        <label for="userPhone">Phone Number:</label>
+        <input type="text" id="userPhone" name="userPhone" required />
+
+        <label for="userDOB">Date of Birth:</label>
+        <input type="date" id="userDOB" name="userDOB" required />
+
+        <label for="userGender">Gender:</label>
+        <select id="userGender" name="userGender" required>
+          <option value="">Select</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+
+        <button type="submit">Register as User</button>
+      </form>
+    </div>
+
+    <!-- Doctor Registration Form -->
+    <div id="doctorRegister" class="tabcontent" style="display: none;">
+      <form id="doctor-register-form">
+        <h2>Doctor Registration</h2>
+        <label for="doctorName">Full Name:</label>
+        <input type="text" id="doctorName" name="doctorName" required />
+
+        <label for="doctorAadhaarReg">Aadhaar Card:</label>
+        <input type="text" id="doctorAadhaarReg" name="doctorAadhaarReg" required />
+
+        <label for="doctorPhone">Phone Number:</label>
+        <input type="text" id="doctorPhone" name="doctorPhone" required />
+
+        <label for="doctorDOB">Date of Birth:</label>
+        <input type="date" id="doctorDOB" name="doctorDOB" required />
+
+        <label for="doctorGender">Gender:</label>
+        <select id="doctorGender" name="doctorGender" required>
+          <option value="">Select</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+
+        <button type="submit">Register as Doctor</button>
+      </form>
+    </div>
+
+    <!-- Link Back to Login -->
+    <p class="redirect">
+      Already have an account? <a href="index.html">Login here</a>
+    </p>
+  </div>
+
+  <script src="js/scripts.js"></script>
+</body>
+</html>

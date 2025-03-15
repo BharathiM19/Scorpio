@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login - Centralized Medical Record System</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div id="login-container">
+    <h1>Centralized Medical Record System</h1>
+    <div class="tab">
+      <button class="tablinks active" onclick="openTab(event, 'userLogin')">User Login</button>
+      <button class="tablinks" onclick="openTab(event, 'doctorLogin')">Doctor Login</button>
+    </div>
+
+    <!-- User Login Form -->
+    <div id="userLogin" class="tabcontent" style="display: block;">
+      <form id="user-login-form">
+        <h2>User Login</h2>
+        <label for="userFullname">Full Name:</label>
+        <input type="text" id="userFullname" name="userFullname" required />
+
+        <label for="userAadhaar">Aadhaar Card:</label>
+        <input type="text" id="userAadhaar" name="userAadhaar" required />
+
+        <button type="submit">Login</button>
+      </form>
+    </div>
+
+    <!-- Doctor Login Form -->
+    <div id="doctorLogin" class="tabcontent" style="display: none;">
+      <form id="doctor-login-form">
+        <h2>Doctor Login</h2>
+        <label for="doctorFullname">Full Name:</label>
+        <input type="text" id="doctorFullname" name="doctorFullname" required />
+
+        <label for="doctorId">Doctor's ID:</label>
+        <input type="text" id="doctorId" name="doctorId" required />
+
+        <button type="submit">Login</button>
+      </form>
+    </div>
+
+    <!-- Link to Registration Page -->
+    <p class="redirect">
+      Don't have an account? <a href="register.html">Register here</a>
+    </p>
+  </div>
+
+  <script src="js/scripts.js"></script>
+</body>
+</html>
